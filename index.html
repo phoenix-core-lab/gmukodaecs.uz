@@ -292,11 +292,43 @@
     </div>
   </section>
 
+  <section class="section-location">
+    <div class="container">
+      <div class="locationContainer">
+        <div id="map"></div>
+      </div>
+    </div>
+  </section>
   <!--==========================
   Footer
 ============================-->
   <footer id="footer">
     <div class="container">
+      <div class="footerContainer">
+        <div class="col-md-12">
+          <div id="footerLogo" class="pull-left footerLogo">
+            <h1><a class='logoText'>GMU KODAECS</a></h1>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <nav class="nav">
+            <a class="link" href="#hero">Главная</a>
+            <a class="link" href="#about">О нас</a>
+            <a class="link" href="#services">Наши услуги</a>
+            <a class="link" href="#subscribe">Точки продаж</a>
+            <a class="link" href="#portfolio">Наши продукты</a>
+            <a class="link" href="#testimonials">Почему мы?</a>
+          </nav>
+        </div>
+        <div class="col-md-12 footerLinks">
+          <div class="location">
+            <a class="link" href="">Сергели, блок 2/3, магазин №6. </a>
+          </div>
+          <div class="phone">
+            <a class="link" href="tel:+998712009100">+99871 200 91 00</a>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <div class="copyright">
@@ -321,6 +353,29 @@
   <script src="js/custom.js"></script>
 
   <script src="contactform/contactform.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        function init() {
+            // Координаты Сергели базара
+            var sergeliBazar = [41.230643, 69.215376];
+            
+            // Создаем карту, центрируем на Сергели базаре
+            var myMap = new ymaps.Map("map", {
+                center: sergeliBazar,
+                zoom: 15
+            });
+
+            // Создаем метку на Сергели базаре
+            var myPlacemark = new ymaps.Placemark(sergeliBazar, {
+                hintContent: 'Сергели Базар',
+                balloonContent: 'Сергели Базар, Ташкент, Узбекистан'
+            });
+
+            // Добавляем метку на карту
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
 
 
 </body>
